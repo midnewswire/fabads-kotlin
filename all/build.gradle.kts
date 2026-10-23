@@ -6,6 +6,7 @@ plugins {
 
 android {
     namespace = "com.fabads.all"
+    defaultConfig { minSdk = 24 } // Wortise needs API 24
 }
 
 dependencies {

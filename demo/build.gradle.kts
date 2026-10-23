@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.fabads.demo"
-        minSdk = 23
+        minSdk = 24 // Wortise, included through :all, needs API 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"

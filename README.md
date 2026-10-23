@@ -64,6 +64,8 @@ dependencies {
 }
 ```
 
+FabAds needs `minSdk` 23 or higher, except Wortise, which needs 24.
+
 AdMob and Ad Manager also need your AdMob app id in `AndroidManifest.xml`:
 
 ```xml
