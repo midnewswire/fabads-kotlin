@@ -26,7 +26,6 @@ import java.util.ServiceLoader
 object FabAds {
     /** Logs every network's load results to Logcat (tag "FabAds") and forces test ads. */
     var debug: Boolean = false
-        private set
 
     var config: AdsConfig = AdsConfig.Disabled
         private set
@@ -36,6 +35,9 @@ object FabAds {
 
     /** Networks the app was built with, found through each module's [AdProvider]. */
     val installedNetworks: List<String> get() = providers.keys.sorted()
+
+    /** The provider of network [id] when its module is in the app. Used by the Flutter bridge. */
+    fun provider(id: String): AdProvider? = providers[NetworkIds.normalize(id)]
 
     /** Networks that are running now, in the admin's order. */
     val activeNetworks: List<String> get() = networks.map { it.id }
@@ -168,6 +170,15 @@ object FabAds {
         }
         attempt(0)
     }
+
+    /**
+     * Shows Google's consent form where required and returns what the user chose. [start] does this itself;
+     * this is for hosts that drive the networks on their own, like the Flutter bridge.
+     */
+    fun requestConsent(activity: Activity, onDone: (Privacy) -> Unit) = Consent.request(activity, debug, onDone)
+
+    /** The consent answers saved earlier, without showing anything. */
+    fun savedPrivacy(context: android.content.Context): Privacy = Consent.read(context)
 
     /** Whether the app should show a "Privacy settings" item (users in the EEA, UK and some US states). */
     fun privacyOptionsRequired(activity: Activity): Boolean = Consent.optionsRequired(activity)
