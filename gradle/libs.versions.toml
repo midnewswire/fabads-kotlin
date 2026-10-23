@@ -1,0 +1,49 @@
+[versions]
+agp = "8.13.0"
+kotlin = "2.2.21"
+composeBom = "2025.10.00"
+activityCompose = "1.11.0"
+lifecycle = "2.9.4"
+ump = "3.2.0"
+# Ad network SDKs. Bump one line here to update a network for every module and the demo.
+playAds = "24.7.0"
+applovin = "13.4.0"
+metaAudience = "6.22.0"
+unityAds = "4.21.0"
+startio = "5.4.0"
+levelplay = "9.7.0"
+pangle = "8.3.0.4"
+mintegral = "17.1.81"
+liftoff = "7.7.9"
+inmobi = "11.5.1"
+chartboost = "9.2.1"
+yandex = "8.6.0"
+wortise = "1.8.0"
+
+[libraries]
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-foundation = { module = "androidx.compose.foundation:foundation" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+lifecycle-process = { module = "androidx.lifecycle:lifecycle-process", version.ref = "lifecycle" }
+ump = { module = "com.google.android.ump:user-messaging-platform", version.ref = "ump" }
+play-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playAds" }
+applovin = { module = "com.applovin:applovin-sdk", version.ref = "applovin" }
+meta-audience = { module = "com.facebook.android:audience-network-sdk", version.ref = "metaAudience" }
+unity-ads = { module = "com.unity3d.ads:unity-ads", version.ref = "unityAds" }
+startio = { module = "com.startapp:inapp-sdk", version.ref = "startio" }
+levelplay = { module = "com.unity3d.ads-mediation:mediation-sdk", version.ref = "levelplay" }
+pangle = { module = "com.pangle.global:pag-sdk", version.ref = "pangle" }
+mintegral = { module = "com.mbridge.msdk.oversea:mbridge_android_sdk", version.ref = "mintegral" }
+liftoff = { module = "com.vungle:vungle-ads", version.ref = "liftoff" }
+inmobi = { module = "com.inmobi.monetization:inmobi-ads-kotlin", version.ref = "inmobi" }
+chartboost = { module = "com.chartboost:chartboost-sdk", version.ref = "chartboost" }
+yandex = { module = "com.yandex.android:mobileads", version.ref = "yandex" }
+wortise = { module = "com.wortise:android-sdk", version.ref = "wortise" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

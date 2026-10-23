@@ -1,0 +1,26 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Build every module and the demo app
+        run: ./gradlew assembleRelease :demo:assembleDebug --stacktrace
+      - name: Publish locally, the way JitPack does
+        run: ./gradlew publishToMavenLocal --stacktrace
+      - uses: actions/upload-artifact@v6
+        with:
+          name: demo-apk
+          path: demo/build/outputs/apk/debug/*.apk
+          if-no-files-found: warn
