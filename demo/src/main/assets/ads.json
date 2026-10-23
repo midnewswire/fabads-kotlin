@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "test_mode": true,
+  "networks": ["admob", "applovin", "meta", "unity", "startio"],
+  "interstitial": { "every": 1, "min_seconds": 0 },
+  "app_open": { "enabled": true, "on_resume": true },
+  "rewarded": { "enabled": true },
+  "native_every": 6,
+  "placements": { "home_banner": true, "detail_banner": true },
+  "admob": { "banner": "x", "mrec": "x", "interstitial": "x", "rewarded": "x", "native": "x", "app_open": "x" },
+  "applovin": { "sdk_key": "", "banner": "", "mrec": "", "interstitial": "", "rewarded": "", "native": "", "app_open": "" },
+  "meta": { "banner": "", "mrec": "", "interstitial": "", "rewarded": "", "native": "", "native_banner": "" },
+  "unity": { "game_id": "", "banner": "Banner_Android", "interstitial": "Interstitial_Android", "rewarded": "Rewarded_Android" },
+  "startio": { "app_id": "" }
+}
